@@ -28,19 +28,18 @@ Peer-to-peer file sharing on a mesh
 
 You are now a mesh node operator running commands from your pet Raspberry Pi, which is connected to the rest of the mesh network we just formed in this room! For the rest of this activity, we will continue to use `example` to represent your node, and `example2` to represent another node near you. Be sure to replace these with the name of your own pet Raspberry Pi and that of its friend.
 
-## Running the InterPlanetary File System (IPFS)
+## Running the Scuttlebutt (SSB-Server)
 
-1. Start IPFS in the background:
+1. Start SSB in the background:
 
-    **root@example:~#** `docker load --input ~/docker/tomeshnet-ipfs-0.1.tar`
-    **root@example:~#** `docker run --name ipfs --network host --detach tomeshnet/ipfs:0.1`
+    **root@example:~#** `docker load --input ~/docker/tomeshnet-ssb-0.1.tar`
+    **root@example:~#** `docker run --name ssb --network host --detach tomeshnet/ssb:0.1`
 
-    With these two commands, we have used a tool called `docker` (which we will not go into detail for now) to load all the files required to run IPFS, then told the Raspberry Pi to run IPFS in the background. You won't see much visual output, but next we will start interacting with this application.
+    With these two commands, we have used a tool called `docker` (which we will not go into detail for now) to load all the files required to run SSB, then told the Raspberry Pi to run SSB in the background. You won't see much visual output, but next we will start interacting with this application.
 
-1. Initiate an interactive session and write a message to the peer-to-peer filesystem:
+1. Connect to the Patchworks, an SSB Client by visiting it's in your browser:
 
-    **root@example:~#** `docker exec -it ipfs sh`
-    **/ #** `echo "Hello World" | ipfs add`
+    `http://example2.local`
 
     With the first command, we navigated to an interactive shell with access to the running IPFS application, and the second command added the text `Hello World` to the peer-to-peer filesystem.
 
